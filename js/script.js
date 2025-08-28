@@ -1,19 +1,22 @@
+// Call Button Functionality
 document
   .getElementById("service-cards")
   .addEventListener("click", function (e) {
     let coin = Number(document.getElementById("coin").innerText);
 
-    if (coin >= 20 && coin <= 100) {
-      coin = coin - 20;
-      document.getElementById("coin").innerText = coin;
-
+    if (coin >= 20) {
       if (e.target.className.includes("call-btn")) {
+        coin = coin - 20;
+        document.getElementById("coin").innerText = coin;
+
         const cardButton = e.target;
         const serviceName =
           cardButton.parentNode.parentNode.children[1].innerText;
+        const serviceTitle =
+          cardButton.parentNode.parentNode.children[2].innerText;
         const serviceNumber =
           cardButton.parentNode.parentNode.children[3].innerText;
-        alert(`📞 Calling ${serviceNumber}... for ${serviceName}.`);
+        alert(`📞 Calling ${serviceNumber}... for ${serviceTitle}.`);
         const historyCart = document.getElementById("history-cart");
         const newHistory = document.createElement("div");
         newHistory.innerHTML = `
@@ -27,9 +30,22 @@ document
       `;
         historyCart.appendChild(newHistory);
       }
+    } else {
+      alert("❌ Opps!!! You don't have enough coin.");
     }
-    else{
-      alert("❌ Opps!!! You don't have enough coin.")
+
+    let heart = Number(document.getElementById("heart").innerText);
+
+    if (e.target.className.includes("heart-btn")) {
+      heart = heart + 1;
+      document.getElementById("heart").innerText = heart;
+    }
+       
+  let copy = Number(document.getElementById("copy").innerText);
+
+    if (e.target.className.includes("copy-btn")) {
+      copy = copy + 1;
+      document.getElementById("copy").innerText = copy;
     }
   });
 
