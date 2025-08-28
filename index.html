@@ -21,7 +21,7 @@
     <!-- Navbar  -->
     <header>
       <div
-        class="navbar flex flex-col justify-center items-center gap-5 md:flex-row bg-base-100 py-3"
+        class="navbar flex flex-col justify-center items-center gap-5 md:flex-row bg-green-50 py-3"
       >
         <div class="navbar-start cursor-pointer">
           <img class="w-12 mr-2" src="assets/logo.png" alt="" />
@@ -37,7 +37,8 @@
             >0 <img class="w-6" src="assets/heart.png" alt=""
           /></a>
           <a class="btn rounded-3xl bg-green-100"
-            >100 <img class="w-6" src="assets/coin.png" alt=""
+            ><span id="coin">100</span>
+            <img class="w-6" src="assets/coin.png" alt=""
           /></a>
           <a class="btn bg-green-600 text-white rounded-3xl">2 Copy</a>
         </div>
@@ -62,9 +63,10 @@
         class="service-container bg-green-100 flex flex-col md:flex-row gap-5 px-3 py-10"
       >
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 service-cards w-full md:w-9/12"
+          id="service-cards"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full md:w-9/12 h-fit"
         >
-          <div class="card bg-white shadow-md">
+          <div class="card bg-white shadow-md h-fit">
             <div class="card-body items-start">
               <div class="w-full flex justify-between items-center">
                 <img
@@ -85,12 +87,12 @@
                 <button
                   class="btn flex-1 call-btn bg-green-600 text-white rounded-xl"
                 >
-                  <i class="fa-solid fa-phone"></i> Call
+                  <i class="fa-solid fa-phone pointer-events-none"></i> Call
                 </button>
               </div>
             </div>
           </div>
-          <div class="card bg-white shadow-md">
+          <div class="card bg-white shadow-md h-fit">
             <div class="card-body items-start">
               <div class="w-full flex justify-between items-center">
                 <img
@@ -111,12 +113,12 @@
                 <button
                   class="btn flex-1 call-btn bg-green-600 text-white rounded-xl"
                 >
-                  <i class="fa-solid fa-phone"></i> Call
+                  <i class="fa-solid fa-phone pointer-events-none"></i> Call
                 </button>
               </div>
             </div>
           </div>
-          <div class="card bg-white shadow-md">
+          <div class="card bg-white shadow-md h-fit">
             <div class="card-body items-start">
               <div class="w-full flex justify-between items-center">
                 <img
@@ -137,12 +139,12 @@
                 <button
                   class="btn flex-1 call-btn bg-green-600 text-white rounded-xl"
                 >
-                  <i class="fa-solid fa-phone"></i> Call
+                  <i class="fa-solid fa-phone pointer-events-none"></i> Call
                 </button>
               </div>
             </div>
           </div>
-          <div class="card bg-white shadow-md">
+          <div class="card bg-white shadow-md h-fit">
             <div class="card-body items-start">
               <div class="w-full flex justify-between items-center">
                 <img
@@ -163,12 +165,12 @@
                 <button
                   class="btn flex-1 call-btn bg-green-600 text-white rounded-xl"
                 >
-                  <i class="fa-solid fa-phone"></i> Call
+                  <i class="fa-solid fa-phone pointer-events-none"></i> Call
                 </button>
               </div>
             </div>
           </div>
-          <div class="card bg-white shadow-md">
+          <div class="card bg-white shadow-md h-fit">
             <div class="card-body items-start">
               <div class="w-full flex justify-between items-center">
                 <img
@@ -189,12 +191,12 @@
                 <button
                   class="btn flex-1 call-btn bg-green-600 text-white rounded-xl"
                 >
-                  <i class="fa-solid fa-phone"></i> Call
+                  <i class="fa-solid fa-phone pointer-events-none"></i> Call
                 </button>
               </div>
             </div>
           </div>
-          <div class="card bg-white shadow-md">
+          <div class="card bg-white shadow-md h-fit">
             <div class="card-body items-start">
               <div class="w-full flex justify-between items-center">
                 <img
@@ -207,7 +209,7 @@
               <h2 class="card-title font-bold">Anti-Corruption Helpline</h2>
               <p>Anti-Corruption</p>
               <h3 class="service-numbber text-2xl font-bold">106</h3>
-              <p class="btn rounded-3xl">Fire</p>
+              <p class="btn rounded-3xl">Govt.</p>
               <div class="card-actions justify-between w-full">
                 <button class="btn flex-1 copy-btn bg-white rounded-xl">
                   <i class="fa-regular fa-copy"></i> Copy
@@ -215,29 +217,32 @@
                 <button
                   class="btn flex-1 call-btn bg-green-600 text-white rounded-xl"
                 >
-                  <i class="fa-solid fa-phone"></i> Call
+                  <i class="fa-solid fa-phone pointer-events-none"></i>Call
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="history-cart w-full md:w-3/12 bg-white shadow-md rounded-md p-5"
-        >
+        <div class="w-full md:w-3/12 bg-white shadow-md rounded-md p-5">
           <div class="flex justify-between items-center">
             <h5 class="font-bold">
               <i class="fa-regular fa-clock"></i> Call History
             </h5>
-            <button class="btn clear-btn bg-green-600 text-white rounded-3xl">
+            <button
+              id="clear-btn"
+              class="btn clear-btn bg-green-600 text-white rounded-3xl"
+            >
               Clear
             </button>
           </div>
-          <div class="flex justify-between p-5 bg-slate-100 my-5 rounded-xl">
-            <div>
+          <div id="history-cart">
+            <!-- <div class="flex justify-between p-5 bg-slate-100 my-5 rounded-xl">
+              <div>
               <h5 class="font-semibold">Fire Service Number</h5>
               <p class="">999</p>
             </div>
             <div>00: 00: 00</div>
+            </div> -->
           </div>
         </div>
       </section>
@@ -248,5 +253,6 @@
       <img class="w-10" src="assets/logo.png" alt="" />
       <p>Copyright © 2025 - All right reserved</p>
     </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>
