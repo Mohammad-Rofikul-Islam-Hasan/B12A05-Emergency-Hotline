@@ -4,8 +4,8 @@ document
   .addEventListener("click", function (e) {
     let coin = Number(document.getElementById("coin").innerText);
 
-    if (coin >= 20) {
-      if (e.target.className.includes("call-btn")) {
+    if (e.target.className.includes("call-btn")) {
+      if (coin >= 20) {
         coin = coin - 20;
         document.getElementById("coin").innerText = coin;
 
@@ -16,7 +16,7 @@ document
           cardButton.parentNode.parentNode.children[2].innerText;
         const serviceNumber =
           cardButton.parentNode.parentNode.children[3].innerText;
-        alert(`📞 Calling ${serviceNumber}... for ${serviceTitle}.`);
+        alert(`📞 Calling ${serviceNumber} ... for ${serviceTitle}.`);
         const historyCart = document.getElementById("history-cart");
         const newHistory = document.createElement("div");
         newHistory.innerHTML = `
@@ -29,21 +29,31 @@ document
             </div>
       `;
         historyCart.appendChild(newHistory);
+      } else if (coin < 20) {
+        alert("❌ Opps!!! You don't have enough coin. You need at least 20 coin to make a call.");
       }
-    } else {
-      alert("❌ Opps!!! You don't have enough coin.");
     }
 
+    // Heart button
     let heart = Number(document.getElementById("heart").innerText);
 
     if (e.target.className.includes("heart-btn")) {
       heart = heart + 1;
       document.getElementById("heart").innerText = heart;
     }
-       
-  let copy = Number(document.getElementById("copy").innerText);
+
+    // Copy Button
+    let copy = Number(document.getElementById("copy").innerText);
 
     if (e.target.className.includes("copy-btn")) {
+    const cardButton = e.target;
+  const serviceNumber =
+    cardButton.parentNode.parentNode.children[3].innerText;
+     navigator.clipboard.writeText(serviceNumber)
+    .then(() => {
+      alert(`✅ Number Copied: ${serviceNumber}`);
+    })
+
       copy = copy + 1;
       document.getElementById("copy").innerText = copy;
     }
