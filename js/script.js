@@ -30,11 +30,13 @@ document
       `;
         historyCart.appendChild(newHistory);
       } else if (coin < 20) {
-        alert("❌ Opps!!! You don't have enough coin. You need at least 20 coin to make a call.");
+        alert(
+          "❌ Opps!!! You don't have enough coin. You need at least 20 coin to make a call."
+        );
       }
     }
 
-    // Heart button
+    // Heart button Functionality
     let heart = Number(document.getElementById("heart").innerText);
 
     if (e.target.className.includes("heart-btn")) {
@@ -42,23 +44,22 @@ document
       document.getElementById("heart").innerText = heart;
     }
 
-    // Copy Button
+    // Copy Button Functionality
     let copy = Number(document.getElementById("copy").innerText);
 
     if (e.target.className.includes("copy-btn")) {
-    const cardButton = e.target;
-  const serviceNumber =
-    cardButton.parentNode.parentNode.children[3].innerText;
-     navigator.clipboard.writeText(serviceNumber)
-    .then(() => {
-      alert(`✅ Number Copied: ${serviceNumber}`);
-    })
-
+      const cardButton = e.target;
+      const serviceNumber =
+        cardButton.parentNode.parentNode.children[3].innerText;
+      navigator.clipboard.writeText(serviceNumber).then(() => {
+        alert(`✅ Number Copied: ${serviceNumber}`);
+      });
       copy = copy + 1;
       document.getElementById("copy").innerText = copy;
     }
   });
 
+// Clear Button Functionality
 document.getElementById("clear-btn").addEventListener("click", function () {
   document.getElementById("history-cart").innerHTML = "";
 });
